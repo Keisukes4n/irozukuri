@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+footer {
+  background:  var( --footer-bg-color );
+  color:       var( --footer-color );
+  display:     flex;
+  align-items: center;
+  flex-flow:   column;
+  padding:     1.0rem;
+  width:       100vw;
+
+  @media screen and ( min-aspect-ratio: 4/3 ) {
+    background: var( --body-bg-color );
+    box-shadow: none;
+    color:      var( --body-color );
+    margin:     0 0 0 30%;
+    width:      60vw;
+  }
+}
+
+footer > div.item {
+  font-size: small;
+  padding:   0.5rem;
+}

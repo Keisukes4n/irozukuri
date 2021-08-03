@@ -10,12 +10,12 @@
   --button-border:         none;
   --button-border-radius:  4px;
   --button-submit-padding: 1.0rem;
-  --button-transition-bg:  background-color 100ms  ease-out 0ms;
+  --button-transition-bg:  background-color 100ms ease-out 0ms;
 
-  --footer-color:    rgba( 247, 247, 247, 1);
+  --footer-color:    rgba( 247, 247, 247, 1 );
   --footer-bg-color: rgba( 63, 63, 63, 1 );
 
-  --tile-bg-color:      rgba( 247, 247, 247, 1);
+  --tile-bg-color:      rgba( 247, 247, 247, 1 );
   --tile-margin:        1.0rem 0 1.0rem 0;
   --tile-parts-padding: 1.0rem;
 
@@ -32,3 +32,9 @@
 
   --shadow-param: 0 0 2px rgba( 175, 175, 175, 1 );
 }
+
+@import "_body.scss";
+@import "_footer.scss";
+@import "_main.scss";
+
+@import "_div.colorSettings.scss";

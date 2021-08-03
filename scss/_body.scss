@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+body {
+	background:    var( --body-bg-color );
+  color:         var( --body-color );
+  display:       flex;
+  flex-flow:     column;
+  height:        100vh;
+  margin:        0;
+  overflow-wrap: break-word;
+  overflow-x:    hidden;
+  padding:       0;
+  width:         100vw;
+}
+
+body a {
+  text-decoration: none;
+}
