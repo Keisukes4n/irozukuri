@@ -76,6 +76,13 @@ main {
       margin: 0;
       padding: var(--h2-padding); }
 
-div.colorSettings {
-  padding: var(--tile-parts-padding); }
+div.color-area {
+  background: #ffffff;
+  padding: var(--tile-parts-padding);
+  height: 50vw;
+  width: 50vw; }
+
+form.color-settings {
+  padding: var(--tile-parts-padding);
+  width: 35vw; }
 /*# sourceMappingURL=style.min.css.map */
