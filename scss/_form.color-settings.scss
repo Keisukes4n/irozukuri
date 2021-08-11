@@ -1,6 +1,15 @@
 @charset "UTF-8";
 
 form.color-settings {
+  display: flex;
   padding: var( --tile-parts-padding );
-  width: 35vw;
+
+  input.string {
+    font-size: x-large;
+    width: var( --input-string-width );
+  }
+
+  input.range {
+    font-size: x-large;
+  }
 }
