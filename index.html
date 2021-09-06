@@ -17,19 +17,27 @@
         <h2>section1</h2>
         <div class="color-area" id="area1"></div>
         <form class="color-settings">
-          <input type="number" min="0" max="255" value="255" class="string" id="inputBase10Red">
+          <span>Red:</span><input type="number" min="0" max="255" value="255" class="string" id="inputBase10Red">
           <input type="text" pattern="[0-9A-Fa-f][0-9A-Fa-f]" value="ff" class="string" id="inputBase16Red">
           <input type="range" min="0" max="255" step="1" class="range" value="255" id="inputRangeRed">
         </form>
         <form class="color-settings">
-          <input type="number" min="0" max="255" value="255" class="string" id="inputBase10Green">
+          <span>Green:</span><input type="number" min="0" max="255" value="255" class="string" id="inputBase10Green">
           <input type="text" pattern="[0-9A-Fa-f][0-9A-Fa-f]" value="ff" class="string" id="inputBase16Green">
           <input type="range" min="0" max="255" step="1" class="range" value="255" id="inputRangeGreen">
         </form>
         <form class="color-settings">
-          <input type="number" min="0" max="255" value="255" class="string" id="inputBase10Blue">
+          <span>Blue:</span><input type="number" min="0" max="255" value="255" class="string" id="inputBase10Blue">
           <input type="text" pattern="[0-9A-Fa-f][0-9A-Fa-f]" value="ff" class="string" id="inputBase16Blue">
           <input type="range" min="0" max="255" step="1" class="range" value="255" id="inputRangeBlue">
+        </form>
+        <form class="color-settings">
+          <span>Base 10:</span>
+          <input type="text" class="cssCode" id="inputBase10Code">
+        </form>
+        <form class="color-settings">
+          <span>Base 16:</span>
+          <input type="text" class="cssCode" id="inputBase16Code">
         </form>
       </section>
       <section class="tile">

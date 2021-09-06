@@ -1,11 +1,7 @@
 "use strict";
 class ColorChanger {
     constructor() {
-        this.colorCode = {
-            r: '255',
-            g: '255',
-            b: '255'
-        };
+        this.colorCode = { r: '255', g: '255', b: '255' };
         this.redValues = {
             color: 'red',
             base10: document.getElementById('inputBase10Red'),
@@ -35,36 +31,7 @@ class ColorChanger {
     getBlueValues() {
         return this.blueValues;
     }
-    prepareInputColor(structure) {
-        const color = structure.color;
-        const base10 = structure.base10;
-        const base16 = structure.base16;
-        const range = structure.range;
-        if (base10 instanceof HTMLInputElement && base16 instanceof HTMLInputElement && range instanceof HTMLInputElement) {
-            base10.addEventListener('input', (event) => {
-                if (event.target instanceof HTMLInputElement) {
-                    base16.value = Number(event.target.value).toString(16);
-                    range.value = String(event.target.value);
-                    this.colorConstruct(color, event.target.value);
-                }
-            });
-            base16.addEventListener('input', (event) => {
-                if (event.target instanceof HTMLInputElement) {
-                    range.value = String(parseInt(event.target.value, 16));
-                    base10.value = String(parseInt(event.target.value, 16));
-                    this.colorConstruct(color, String(parseInt(event.target.value, 16)));
-                }
-            });
-            range.addEventListener('input', (event) => {
-                if (event.target instanceof HTMLInputElement) {
-                    base10.value = String(event.target.value);
-                    base16.value = Number(event.target.value).toString(16);
-                    this.colorConstruct(color, event.target.value);
-                }
-            });
-        } // if
-    } // prepareInputColor
-    colorConstruct(color, value) {
+    setColorCodes(color, value) {
         try {
             switch (color) {
                 case 'red':
@@ -77,8 +44,16 @@ class ColorChanger {
                     this.colorCode.b = value;
                     break;
                 default:
-                    throw new Error("Error: no color.");
-            } // switch
+                    throw 'Error: no color.';
+            }
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }
+    colorConstruct(color, value) {
+        try {
+            this.setColorCodes(color, value);
             if (this.area1 instanceof HTMLElement) {
                 this.area1.style.background
                     = 'rgba( ' + this.colorCode.r + ', ' + this.colorCode.g + ', ' + this.colorCode.b + ', 1 )';
@@ -88,8 +63,46 @@ class ColorChanger {
             console.log(error);
         }
     } // colorConstruct
+    inputEvent(structure) {
+        try {
+            const color = structure.color;
+            const base10 = structure.base10;
+            const base16 = structure.base16;
+            const range = structure.range;
+            if (!(base10 instanceof HTMLInputElement))
+                throw 'elementException';
+            if (!(base16 instanceof HTMLInputElement))
+                throw 'elementException';
+            if (!(range instanceof HTMLInputElement))
+                throw 'elementException';
+            base10.addEventListener('input', (event) => {
+                if (!(event.target instanceof HTMLInputElement))
+                    throw 'Event target exception';
+                base16.value = Number(event.target.value).toString(16);
+                range.value = String(event.target.value);
+                this.colorConstruct(color, event.target.value);
+            });
+            base16.addEventListener('input', (event) => {
+                if (!(event.target instanceof HTMLInputElement))
+                    throw 'Event target exception';
+                range.value = String(parseInt(event.target.value, 16));
+                base10.value = String(parseInt(event.target.value, 16));
+                this.colorConstruct(color, String(parseInt(event.target.value, 16)));
+            });
+            range.addEventListener('input', (event) => {
+                if (!(event.target instanceof HTMLInputElement))
+                    throw 'Event target exception';
+                base10.value = String(event.target.value);
+                base16.value = Number(event.target.value).toString(16);
+                this.colorConstruct(color, event.target.value);
+            });
+        }
+        catch (identify) {
+            console.error(identify);
+        }
+    }
 }
 const colorChangerIns = new ColorChanger;
-colorChangerIns.prepareInputColor(colorChangerIns.getRedValues());
-colorChangerIns.prepareInputColor(colorChangerIns.getGreenValues());
-colorChangerIns.prepareInputColor(colorChangerIns.getBlueValues());
+colorChangerIns.inputEvent(colorChangerIns.getRedValues());
+colorChangerIns.inputEvent(colorChangerIns.getGreenValues());
+colorChangerIns.inputEvent(colorChangerIns.getBlueValues());

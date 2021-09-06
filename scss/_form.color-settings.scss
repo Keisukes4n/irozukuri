@@ -1,8 +1,20 @@
 @charset "UTF-8";
 
 form.color-settings {
+  align-items: center;
   display: flex;
+  font-size: x-large;
+  justify-content: center;
   padding: var( --tile-parts-padding );
+
+  span {
+    width: 5.0rem;
+  }
+
+  input.cssCode {
+    font-size: x-large;
+    width: 16rem;
+  }
 
   input.string {
     font-size: x-large;
@@ -11,5 +23,6 @@ form.color-settings {
 
   input.range {
     font-size: x-large;
+    margin: 0 0.5rem 0 0.5rem;
   }
 }
